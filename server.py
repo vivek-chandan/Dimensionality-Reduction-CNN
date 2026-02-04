@@ -46,7 +46,8 @@ except Exception as e:
 try:
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     server_socket.bind((config.SERVER_IP, config.SERVER_PORT))
-    server_socket.settimeout(0.001)  # Use timeout instead of non-blocking mode
+    # Use 100ms timeout for better balance between responsiveness and CPU efficiency
+    server_socket.settimeout(0.1)
     print(f"✓ Server listening on {config.SERVER_IP}:{config.SERVER_PORT}")
 except OSError as e:
     print(f"Failed to bind socket: {e}", file=sys.stderr)

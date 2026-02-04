@@ -36,12 +36,17 @@ BACKGROUND_COLOR = (30, 30, 30)  # Dark gray
 
 # ==================== Network Configuration ====================
 # Server configuration (for server.py)
-# IMPORTANT: Update these values for your network setup
-SERVER_IP = "192.168.1.100"  # Change to your IP address
+# ⚠️ IMPORTANT: You MUST update these IP addresses before running!
+# To find your IP address:
+#   - Windows: Run 'ipconfig' in command prompt
+#   - Linux/Mac: Run 'ifconfig' or 'ip addr' in terminal
+# Both computers must be on the same network for P2P communication.
+
+SERVER_IP = "0.0.0.0"  # ⚠️ CHANGE THIS to your local IP address (e.g., 192.168.1.100)
 SERVER_PORT = 5142
 
 # Friend's IP for peer-to-peer communication
-FRIEND_IP = "192.168.1.101"  # Change to friend's IP address
+FRIEND_IP = "127.0.0.1"  # ⚠️ CHANGE THIS to your friend's IP address (e.g., 192.168.1.101)
 
 # Network buffer size (in bytes)
 BUFFER_SIZE = 65536

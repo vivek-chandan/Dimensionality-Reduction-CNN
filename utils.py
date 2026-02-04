@@ -241,13 +241,25 @@ def calculate_compression_stats(original_size, compressed_size):
         
     Returns:
         tuple: (compression_percentage, compression_ratio)
+        
+    Raises:
+        ValueError: If sizes are invalid (negative or zero original size)
     """
     if original_size <= 0:
+        import sys
+        print(f"Warning: Invalid original_size: {original_size}. Returning default values.", 
+              file=sys.stderr)
         return 0.0, 1.0
+    
+    if compressed_size < 0:
+        import sys
+        print(f"Warning: Invalid compressed_size: {compressed_size}. Using 0.", 
+              file=sys.stderr)
+        compressed_size = 0
     
     compression_percentage = (1 - (compressed_size / original_size)) * 100
     compression_percentage = max(0, min(compression_percentage, 100))
     
-    compression_ratio = original_size / compressed_size if compressed_size > 0 else 1.0
+    compression_ratio = original_size / compressed_size if compressed_size > 0 else float('inf')
     
     return compression_percentage, compression_ratio
