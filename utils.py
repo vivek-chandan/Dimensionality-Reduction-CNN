@@ -246,13 +246,11 @@ def calculate_compression_stats(original_size, compressed_size):
         ValueError: If sizes are invalid (negative or zero original size)
     """
     if original_size <= 0:
-        import sys
         print(f"Warning: Invalid original_size: {original_size}. Returning default values.", 
               file=sys.stderr)
         return 0.0, 1.0
     
     if compressed_size < 0:
-        import sys
         print(f"Warning: Invalid compressed_size: {compressed_size}. Using 0.", 
               file=sys.stderr)
         compressed_size = 0
