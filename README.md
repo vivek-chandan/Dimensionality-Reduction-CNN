@@ -133,28 +133,10 @@ With default settings (1000 eigenfaces):
 This version includes several improvements over the original:
 
 ### Security & Safety
-- ✅ Replaced `pickle` with `json` for network serialization (prevents code injection)
-- ✅ Added comprehensive error handling for file operations
-- ✅ Validated YOLO coordinates to prevent array index errors
-- ✅ Thread-safe access to shared variables using locks
-
-### Code Quality
-- ✅ Centralized configuration in `config.py`
-- ✅ Extracted utility functions to `utils.py`
-- ✅ Added comprehensive docstrings
-- ✅ Consistent code structure across both scripts
-- ✅ Proper resource cleanup
-
-### Performance
-- ✅ Replaced busy-wait loop with socket timeout
-- ✅ Removed redundant operations
-- ✅ Added boundary checks for display operations
-
-### Documentation
-- ✅ Enhanced README with setup instructions
-- ✅ Added inline comments explaining PCA process
-- ✅ Created `requirements.txt` for easy dependency management
-- ✅ Added `.gitignore` for Python projects
+- Replaced `pickle` with `json` for network serialization (prevents code injection)
+- Added comprehensive error handling for file operations
+- Validated YOLO coordinates to prevent array index errors
+- Thread-safe access to shared variables using locks
 
 ## Troubleshooting
 
