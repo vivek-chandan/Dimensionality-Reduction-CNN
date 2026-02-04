@@ -42,6 +42,20 @@ except Exception as e:
     sys.exit(1)
 
 # ========================== Network Configuration ==========================
+# Validate configuration before starting
+if config.SERVER_IP == "0.0.0.0":
+    print("\n⚠️  ERROR: You must configure your IP address in config.py before running!", file=sys.stderr)
+    print("Please update SERVER_IP with your actual local IP address.", file=sys.stderr)
+    print("To find your IP:", file=sys.stderr)
+    print("  - Windows: Run 'ipconfig' in command prompt", file=sys.stderr)
+    print("  - Linux/Mac: Run 'ifconfig' or 'ip addr' in terminal\n", file=sys.stderr)
+    sys.exit(1)
+
+if config.FRIEND_IP == "127.0.0.1":
+    print("\n⚠️  WARNING: FRIEND_IP is set to localhost (127.0.0.1)", file=sys.stderr)
+    print("This will only work if both instances are on the same machine.", file=sys.stderr)
+    print("For peer-to-peer communication, set FRIEND_IP to your friend's actual IP address.\n", file=sys.stderr)
+
 # Initialize socket with error handling
 try:
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
